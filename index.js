@@ -72,7 +72,7 @@ class RedisCache {
 
       this.client.multi()
         .set(key, body)
-        .expire(path, this.expiration)
+        .expire(key, this.expiration)
         .exec(err => {
           if (err) {
             rej(err);
