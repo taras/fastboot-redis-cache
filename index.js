@@ -6,10 +6,17 @@ const FIVE_MINUTES = 5 * 60;
 
 class RedisCache {
   constructor(options) {
-    let client = this.client = redis.createClient({
+
+    let clientOptions = {
       host: options.host,
       port: options.port
-    });
+    };
+
+    if (options.password) {
+      clientOptions.password = options.password;
+    }
+
+    let client = this.client = redis.createClient(clientOptions);
 
     this.expiration = options.expiration || FIVE_MINUTES;
     this.connected = false;

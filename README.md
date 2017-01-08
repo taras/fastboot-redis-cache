@@ -50,3 +50,13 @@ let cache = new RedisCache({
   }
 });
 ```
+
+You can specify Redis authentication password if your server requires it.
+
+```js
+let cache = new RedisCache({
+  host: FASTBOOT_REDIS_HOST,
+  port: FASTBOOT_REDIS_PORT,
+  password: FASTBOOT_REDIS_PASSWORD
+});
+```
